@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 2%;
+  background-color: rgb(192, 184, 194);
+  opacity: 0.8;
+}
+
+.catalog_main {
+  display: flex;
+  gap: 5%;
+  padding: 2%;
+}
+
+.brands_content {
+  padding-top: 5px;
+  display: flex;
+  text-align: center;
+}
+
+.catalog {
+  width: 70%;
+}
+.catalog_content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.product_card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.product_card img {
+  max-width: 100%;
+  height: auto;
+}

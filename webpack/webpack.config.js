@@ -34,6 +34,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '..', './build'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   mode: 'development',
   plugins: [
@@ -42,4 +43,14 @@ module.exports = {
     }),
   ],
   stats: 'errors-only',
+  devServer: {
+    historyApiFallback: true,
+    static: {
+      directory: path.join(__dirname, '..', './build'),
+    },
+    open: true,
+    compress: true,
+    hot: true,
+    port: 8080,
+  },
 };
