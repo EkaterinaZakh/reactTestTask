@@ -1,7 +1,10 @@
 export type BrandsType = {
-  name: string;
+  id: number;
+  title: string;
+  sort: string;
+  code: string;
 };
 
 export type BrandsStateType = {
-  categories: BrandsType[];
+  brands: BrandsType[];
 };

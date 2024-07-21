@@ -1,41 +1,36 @@
-export default function AllBrands() {
+import { BrandsType } from "../types/BrandsType";
+
+interface BrandsPropType {
+  brands: BrandsType[];
+  onBrandSelect: (brandId: string) => void;
+  selectedBrandCode: string | null;
+}
+
+export default function AllBrands({
+  brands,
+  onBrandSelect,
+  selectedBrandCode,
+}: BrandsPropType) {
   return (
     <>
       <div className="brands_container">
         <h4>All brands</h4>
 
         <div className="list-group">
-          <button
-            type="button"
-            className="list-group-item list-group-item-action "
-            aria-current="true"
-          >
-            The current button
-          </button>
-          <button
-            type="button"
-            className="list-group-item list-group-item-action"
-          >
-            A second item
-          </button>
-          <button
-            type="button"
-            className="list-group-item list-group-item-action"
-          >
-            A third button item
-          </button>
-          <button
-            type="button"
-            className="list-group-item list-group-item-action"
-          >
-            A fourth button item
-          </button>
-          <button
-            type="button"
-            className="list-group-item list-group-item-action"
-          >
-            A disabled button item
-          </button>
+          {brands.length > 0 ? (
+            brands.map((brand) => (
+              <button
+                key={brand.id}
+                type="button"
+                className={`list-group-item list-group-item-action ${selectedBrandCode === brand.code ? "blue" : ""}`}
+                onClick={() => onBrandSelect(brand.code)}
+              >
+                {brand.title}
+              </button>
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
       </div>
     </>
